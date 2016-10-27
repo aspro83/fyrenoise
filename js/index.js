@@ -33,7 +33,28 @@ function loadSound(soundName) {
 }
 
 window.onload = function soundsBootstrap() {
-  var sounds = ['andrewKeyboard', 'markBadGateway'];
+  var sounds = [
+    'alexOhNo',
+    'andrewKeyboard',
+    'colbyLookIntoIt',
+    'colbyNights',
+    'danniNo',
+    'danniOhMatt',
+    'donOhGod',
+    'gibronJustThinking',
+    'jeffHuh',
+    'jeffNope',
+    'jeffWat',
+    'jk2Bugs1',
+    'jk2Bugs2',
+    'jk2Cookie',
+    'joBeerOclock',
+    'jordan',
+    'markBadGateway',
+    'mikeOkGuy',
+    'rachAskYou',
+    'rossGoTeam'
+  ];
   sources = {};
   for (var i=0; i<sounds.length; i++) {
     sources[sounds[i]] = loadSound(sounds[i]);
@@ -53,6 +74,27 @@ devon - the future
 jk2 - it is buuug
 jk2 - grover noise
 ross - go team
+ross - laptop fan
+ryan - hey
+ahmed -
+chelsea -
+colby - ? motocycle?
+jordan - "guys"
+jordan - "deadline... 2 days"
+matt 
+jov - language 
+andrew - aws or proxie?
+nino - hawaiian or analagy
+joao - ppop in portugeuse
+thai - punching with noise
+rachel - starwars light saber
+
+
+
+
+
+
+
 
 */
 
