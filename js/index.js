@@ -1,11 +1,28 @@
 var audioCtx = new AudioContext();
 
+var buffers = {};
+var sources = {};
+
 function playSound(soundName) {
-  // sources[soundName].stop(0);
-  sources[soundName].start(0);
+  if (sources[soundName]) {
+    sources[soundName].stop(0);
+    delete sources[soundName];
+    return;
+  }
+
+  var source = audioCtx.createBufferSource();
+  source.buffer = buffers[soundName];
+  source.loop = false;
+  source.connect(audioCtx.destination);
+
+  source.start(0);
+  source.onended = function() {
+    delete sources[soundName];
+  };
+
+  sources[soundName] = source;
 }
 function loadSound(soundName) {
-  var source = audioCtx.createBufferSource();
   var request = new XMLHttpRequest();
 
   request.open('GET', 'sounds/' + soundName + '.m4a', true);
@@ -17,10 +34,7 @@ function loadSound(soundName) {
     var audioData = request.response;
 
     audioCtx.decodeAudioData(audioData, function(buffer) {
-        source.buffer = buffer;
-
-        source.connect(audioCtx.destination);
-        source.loop = false;
+        buffers[soundName] = buffer;
       },
 
       function(e){"Error with decoding audio data" + e.err});
@@ -28,7 +42,6 @@ function loadSound(soundName) {
   }
 
   request.send();
-  return source;
 
 }
 
@@ -57,9 +70,8 @@ window.onload = function soundsBootstrap() {
     'devonTheFuture',
     'devonItWorks'
   ];
-  sources = {};
   for (var i=0; i<sounds.length; i++) {
-    sources[sounds[i]] = loadSound(sounds[i]);
+    loadSound(sounds[i]);
   }
 
 }
