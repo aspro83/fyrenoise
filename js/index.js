@@ -1,3 +1,4 @@
+var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioCtx = new AudioContext();
 
 var buffers = {};
