@@ -29,7 +29,7 @@ function loadSound(soundName) {
 
   request.send();
   return source;
-  
+
 }
 
 window.onload = function soundsBootstrap() {
@@ -53,7 +53,9 @@ window.onload = function soundsBootstrap() {
     'markBadGateway',
     'mikeOkGuy',
     'rachAskYou',
-    'rossGoTeam'
+    'rossGoTeam',
+    'devonTheFuture',
+    'devonItWorks'
   ];
   sources = {};
   for (var i=0; i<sounds.length; i++) {
@@ -81,8 +83,8 @@ chelsea -
 colby - ? motocycle?
 jordan - "guys"
 jordan - "deadline... 2 days"
-matt 
-jov - language 
+matt
+jov - language
 andrew - aws or proxie?
 nino - hawaiian or analagy
 joao - ppop in portugeuse
