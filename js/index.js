@@ -25,8 +25,15 @@ function playSound(soundName) {
 }
 function loadSound(soundName) {
   var request = new XMLHttpRequest();
+  var sound = 'sounds/' + soundName;
+  if (soundName === 'ahmedBest' || soundName === 'ahmedMattW') {
+    sound = sound + '.mp3';
+  } else {
+    sound = sound + '.m4a'
+  }
 
-  request.open('GET', 'sounds/' + soundName + '.m4a', true);
+  // request.open('GET', 'sounds/' + soundName + '.m4a', true);
+  request.open('GET', sound, true);
 
   request.responseType = 'arraybuffer';
 
@@ -48,12 +55,17 @@ function loadSound(soundName) {
 
 window.onload = function soundsBootstrap() {
   var sounds = [
+    'ahmedBest',
+    'ahmedMattW',
+    'alainaPickleback',
     'alexOhNo',
     'andrewKeyboard',
     'colbyLookIntoIt',
     'colbyNights',
     'danniNo',
     'danniOhMatt',
+    'devonItWorks',
+    'devonTheFuture',
     'donOhGod',
     'gibronJustThinking',
     'jeffHuh',
@@ -64,12 +76,23 @@ window.onload = function soundsBootstrap() {
     'jk2Cookie',
     'joBeerOclock',
     'jordan',
+    'justineDoughby',
     'markBadGateway',
+    'markjeffWat',
+    'mattD',
+    'meganLunch',
+    'mikeJosh',
     'mikeOkGuy',
+    'natashaThanks',
+    'natashaTime',
+    'ninoRefactor',
+    'nishEmojis',
     'rachAskYou',
+    'rossFan',
     'rossGoTeam',
-    'devonTheFuture',
-    'devonItWorks'
+    'thaiPager',
+    'mattW'
+
   ];
   for (var i=0; i<sounds.length; i++) {
     loadSound(sounds[i]);
